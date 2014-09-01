@@ -7,7 +7,6 @@
 
 const static int TOKEN_NUMBER = 1;
 const static int TOKEN_SYMBOL = 2;
-const static int TOKEN_PERIOD = 3;
 
 struct token {
   int type;

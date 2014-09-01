@@ -5,29 +5,29 @@
 %option yylineno
 
 NUMBER    [0-9]*\.?[0-9]+
-PERIOD    [.]
 SYMBOL    [a-zA-Z_-]+
+OPERATOR  [^[:space:]0-9a-zA-Z]+
 
 %%
 
-{NUMBER}  {
-            printf("Found number (%s)\n", yytext);
-            new_token(TOKEN_NUMBER, yylineno, yytext);
-          }
+{NUMBER}    {
+              printf("Found number (%s)\n", yytext);
+              new_token(TOKEN_NUMBER, yylineno, yytext);
+            }
 
-{SYMBOL}  {
-            printf("Found symbol (%s)\n", yytext, yylineno);
-            new_token(TOKEN_SYMBOL, yylineno, yytext);
-          }
+{SYMBOL}    {
+              printf("Found symbol (%s)\n", yytext, yylineno);
+              new_token(TOKEN_SYMBOL, yylineno, yytext);
+            }
 
-{PERIOD}  {
-            printf("Found period\n");
-            new_token(TOKEN_PERIOD, yylineno, yytext);
-          }
+{OPERATOR}  {
+              printf("Found operator (%s)\n", yytext, yylineno);
+              new_token(TOKEN_SYMBOL, yylineno, yytext);
+            }
 
-\n        {
-            /* Match newline for yylineno */
-          }
+[ \t\n\r]   {
+
+            }
 
 %%
 
