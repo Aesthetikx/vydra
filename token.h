@@ -5,11 +5,24 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct line {
-  int token_count;
-  char **tokens;
+const static int TOKEN_NUMBER = 1;
+const static int TOKEN_SYMBOL = 2;
+const static int TOKEN_PERIOD = 3;
+
+struct token {
+  int type;
+  int line_no;
+  char *value;
 };
 
-void tokenize(FILE *file, int *line_count, struct line **lines);
+struct token **tokens;
+int token_count;
+int tokens_size;
+
+void
+init_tokens();
+
+void
+new_token(int type, int line_no, char *value);
 
 #endif
