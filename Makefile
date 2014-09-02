@@ -1,6 +1,6 @@
 all: vydra
 
-vydra: lex.yy.c token.o hash_table.o
+vydra: lex.yy.c token.o hash_table.o member_table.o
 	gcc lex.yy.c token.o hash_table.o -lfl -o vydra
 
 lex.yy.c: vydra.l token.h
@@ -11,6 +11,9 @@ token.o: token.c token.h
 
 hash_table.o: hash_table.c hash_table.h
 	gcc -c hash_table.c
+
+member_table.o: member_table.c member_table.h
+	gcc -c member_table.c
 
 clean:
 	rm *.o vydra lex.yy.c
