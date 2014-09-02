@@ -8,3 +8,6 @@ lex.yy.c: vydra.l token.h
 
 token.o: token.c
 	gcc -c token.c
+
+clean:
+	rm *.o vydra lex.yy.c
