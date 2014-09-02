@@ -1,6 +1,8 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
+#include "member_table.h"
+
 // Applier flags
 const int APPLY = 1;
 const int APPLY_PREFIX = 2;
@@ -14,7 +16,7 @@ struct object {
   char *name;
   int type;
 
-  member_table *members;
+  struct member_table *member_table;
 
   int apply_mode;
   object* (*apply)();

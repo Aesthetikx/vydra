@@ -9,6 +9,9 @@ lex.yy.c: vydra.l token.h
 token.o: token.c token.h
 	gcc -c token.c
 
+object.o: object.c object.h
+	gcc -c object.c
+
 hash_table.o: hash_table.c hash_table.h
 	gcc -c hash_table.c
 
