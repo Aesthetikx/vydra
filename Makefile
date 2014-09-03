@@ -1,7 +1,7 @@
 all: vydra
 
-vydra: lex.yy.c token.o hash_table.o member_table.o object.o
-	gcc lex.yy.c token.o hash_table.o -lfl -o vydra
+vydra: lex.yy.c token.o hash_table.o member_table.o object.o env.o
+	gcc -o vydra lex.yy.c token.o hash_table.o member_table.o object.o env.o -lfl
 
 lex.yy.c: vydra.l token.h
 	flex vydra.l

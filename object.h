@@ -4,10 +4,10 @@
 #include "member_table.h"
 
 // Applier flags
-const int APPLY = 1;
-const int APPLY_PREFIX = 2;
-const int APPLY_INFIX = 4;
-const int APPLY_POSTFIX = 8;
+extern const int APPLY;
+extern const int APPLY_PREFIX;
+extern const int APPLY_INFIX;
+extern const int APPLY_POSTFIX;
 
 typedef struct object object;
 
@@ -31,9 +31,12 @@ struct object {
   double double_value;
 };
 
-extern object *basic_object;
-extern object *basic_class;
-extern object *nil_class;
-extern object *nil_object;
+void
+init_objects();
+
+object *basic_object;
+object *basic_class;
+object *nil_class;
+object *nil_object;
 
 #endif

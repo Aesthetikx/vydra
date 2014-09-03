@@ -13,6 +13,8 @@ hash(char *value);
 typedef struct hash_table_entry hash_table_entry;
 typedef struct hash_table hash_table;
 
+typedef struct object object;
+
 struct hash_table {
   int size;
   hash_table_entry **entries;
