@@ -31,4 +31,9 @@ struct object {
   double double_value;
 };
 
+extern object *basic_object;
+extern object *basic_class;
+extern object *nil_class;
+extern object *nil_object;
+
 #endif
