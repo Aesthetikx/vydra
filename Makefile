@@ -12,6 +12,9 @@ token.o: token.c token.h
 object.o: object.c object.h
 	gcc -c object.c
 
+env.o: env.c env.h
+	gcc -c env.c
+
 hash_table.o: hash_table.c hash_table.h
 	gcc -c hash_table.c
 
