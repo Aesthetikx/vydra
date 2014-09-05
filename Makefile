@@ -1,25 +1,20 @@
-all: vydra
+APPNAME = bin/vydra
+CC = gcc
+SOURCEDIR = src
+OBJDIR = obj
+SOURCES := $(wildcard src/*.c)
+OBJECTS := $(patsubst src%,obj%, $(patsubst %.c,%.o, $(SOURCES))) obj/lex.yy.o
 
-vydra: lex.yy.c token.o hash_table.o member_table.o object.o env.o
-	gcc -o vydra lex.yy.c token.o hash_table.o member_table.o object.o env.o -lfl
+all: $(OBJECTS)
+	$(CC) -o $(APPNAME) $(OBJECTS) -lfl
 
-lex.yy.c: vydra.l token.h
-	flex vydra.l
+src/lex.yy.c: src/vydra.l
+	flex -osrc/lex.yy.c src/vydra.l
 
-token.o: token.c token.h
-	gcc -c token.c
-
-object.o: object.c object.h
-	gcc -c object.c
-
-env.o: env.c env.h
-	gcc -c env.c
-
-hash_table.o: hash_table.c hash_table.h
-	gcc -c hash_table.c
-
-member_table.o: member_table.c member_table.h
-	gcc -c member_table.c
+obj/%.o: src/%.c
+	$(CC) -o $@ -c $<
 
 clean:
-	rm *.o vydra lex.yy.c
+	-rm -r obj/*.o
+	-rm $(APPNAME)
+	-rm src/lex.yy.c

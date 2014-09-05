@@ -36,5 +36,5 @@ main(int argc, char **argv)
 {
   init_tokens();
   yyin = fopen(argv[1], "r");
-  yylex();
+  return yylex();
 }
