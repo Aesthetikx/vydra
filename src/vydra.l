@@ -1,5 +1,8 @@
 %top{
   #include "token.h"
+  #include "object.h"
+  #include "string.h"
+  #include "io.h"
 }
 
 %option yylineno
@@ -36,5 +39,7 @@ main(int argc, char **argv)
 {
   init_tokens();
   yyin = fopen(argv[1], "r");
-  return yylex();
+  yylex();
+
+  return eval(tokens);
 }
