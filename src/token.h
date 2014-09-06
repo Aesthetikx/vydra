@@ -8,13 +8,15 @@
 const static int TOKEN_NUMBER = 1;
 const static int TOKEN_SYMBOL = 2;
 
+typedef struct token token;
+
 struct token {
   int type;
   int line_no;
   char *value;
 };
 
-struct token **tokens;
+token **tokens;
 int token_count;
 int tokens_size;
 
