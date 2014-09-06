@@ -7,6 +7,12 @@ const int APPLY_PREFIX = 2;
 const int APPLY_INFIX = 4;
 const int APPLY_POSTFIX = 8;
 
+const int TYPE_OBJECT = 1;
+const int TYPE_FUNCTION = 2;
+const int TYPE_STRING = 4;
+const int TYPE_INTEGER = 8;
+const int TYPE_FLOAT = 16;
+
 void
 init_objects()
 {

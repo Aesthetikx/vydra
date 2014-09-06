@@ -9,6 +9,12 @@ extern const int APPLY_PREFIX;
 extern const int APPLY_INFIX;
 extern const int APPLY_POSTFIX;
 
+extern const int TYPE_OBJECT;
+extern const int TYPE_FUNCTION;
+extern const int TYPE_STRING;
+extern const int TYPE_INTEGER;
+extern const int TYPE_FLOAT;
+
 typedef struct object object;
 
 struct object {
